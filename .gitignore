@@ -1,0 +1,6 @@
+vendor/
+node_modules/
+/storage/app/public/
+npm-debug.log
+.idea/*
+.env
