@@ -12,13 +12,13 @@ class CompaniesController extends Controller
 {
 
     public function index(){
-        $data['companies'] = Company::paginate(7);
+        $data['companies'] = Company::paginate(10);
         return view('companies.index',$data);
     }
 
     public function show(Company $company){
         $data['company'] = $company;
-        $data['employees'] = $company->employees()->paginate(7);
+        $data['employees'] = $company->employees()->paginate(10);
         return view('companies.show',$data);
     }
 

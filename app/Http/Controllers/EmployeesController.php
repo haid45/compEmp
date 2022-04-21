@@ -11,7 +11,7 @@ class EmployeesController extends Controller
 {
 
     public function index(){
-        $data['employees'] = Employee::paginate(7);
+        $data['employees'] = Employee::paginate(10);
         return view('employees.index',$data);
     }
 
