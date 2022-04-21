@@ -2,7 +2,7 @@
 
 compEmp is a simple laravel project to manage companies and their employees.
 
-##Installation
+## Installation
 
 - Clone the compEmp repo https://github.com/haid45/compEmp
 - Run `composer install`.
@@ -20,7 +20,7 @@ You can run the tests with:
 
 V1 currently only has migration and seed testing. More tests in the next release.
 
-##Credits
+## Credits
 - [Laravel](https://laravel.com/).
 - [JQuery](https://jquery.com).
 - [Open Iconic Icons](https://useiconic.com/open)
