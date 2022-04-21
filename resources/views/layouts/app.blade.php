@@ -37,6 +37,14 @@
 
                     </ul>
 
+                    @auth
+                        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                            <li><a href="{{route('home')}}" class="nav-link px-2 link-secondary">Home</a></li>
+                            <li><a href="{{route('companies.index')}}" class="nav-link px-2 link-dark">Companies</a></li>
+                            <li><a href="{{route('employees.index')}}" class="nav-link px-2 link-dark">Employees</a></li>
+                        </ul>
+                    @endauth
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -77,8 +85,11 @@
         </nav>
 
         <main class="py-4">
+            @include('partials.notices')
             @yield('content')
         </main>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    @stack('js')
 </body>
 </html>

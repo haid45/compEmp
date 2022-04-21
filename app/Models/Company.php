@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\File;
 class Company extends Model
 {
     use HasFactory;
+    protected $fillable = ['name','email','logo','website'];
+
 
     protected static function boot() {
         parent::boot();
@@ -17,5 +19,13 @@ class Company extends Model
                 File::delete(public_path($company->logo));
             }
         });
+    }
+
+    public function getLogoAttribute($value){
+        return url(str_replace('public/','',$value));
+    }
+
+    public function employees(){
+        return $this->hasMany(Employee::class,'company_id');
     }
 }

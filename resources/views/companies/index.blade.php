@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1>
-            Companies
+            Companies <span class="float-end"><a href="{{route('companies.create')}}" class="btn btn-sm btn-success"><i class="oi oi-plus"></i></a></span>
         </h1>
         <div class="row justify-content-center">
             <table class="table">
@@ -24,9 +24,13 @@
                         <td><a href="mailto:{{$company->email}}" title="{{$company->name}}">{{$company->email}}</a></td>
                         <td><a href="{{$company->website}}" target="_blank" title="{{$company->name}}">{{$company->website}}</a></td>
                         <td>
-                            <button type="button" class="btn btn-primary btn-sm my-1"><i class="oi oi-eye"></i></button>
-                            <button type="button" class="btn btn-success btn-sm my-1"><i class="oi oi-pencil"></i></button>
-                            <button type="button" class="btn btn-danger btn-sm my-1"><i class="oi oi-trash"></i></button>
+                            <a href="{{route('companies.show',$company)}}" class="btn btn-primary btn-sm my-1"><i class="oi oi-eye"></i></a>
+                            <a href="{{route('companies.edit',$company)}}" class="btn btn-success btn-sm my-1"><i class="oi oi-pencil"></i></a>
+                            <form action="{{route('companies.destroy',$company)}}" method="POST" class="delCom">
+                                {{ method_field('DELETE') }}
+                                {{ csrf_field() }}
+                                <button type="submit" class="btn btn-danger btn-sm my-1"><i class="oi oi-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

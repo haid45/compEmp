@@ -18,4 +18,6 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('/companies', \App\Http\Controllers\CompaniesController::class);
+
+Route::resource('companies', \App\Http\Controllers\CompaniesController::class,['names' => 'companies'])->middleware('auth');
+Route::resource('employees', \App\Http\Controllers\EmployeesController::class,['names' => 'employees'])->middleware('auth');
