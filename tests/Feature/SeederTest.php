@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class SeederTest extends TestCase
 {
-//    use RefreshDatabase;
+    use RefreshDatabase;
     /**
      * Test seeding DB.
      *
@@ -18,5 +18,6 @@ class SeederTest extends TestCase
     {
         $this->seed();
         $this->assertDatabaseHas('users', ['email'=> env('INITIAL_USER_EMAIL','admin@admin.com')]);
+        $this->assertDatabaseCount('companies','10');
     }
 }
