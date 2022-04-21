@@ -50,9 +50,13 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <select name="company_id" class="form-control col-md-12" required>
-                                            @foreach($companies as $company)
-                                                <option value="{{ $company->id }}" @if(old('company_id') == $company->id) selected @endif>{{ $company->name }}</option>
-                                            @endforeach
+                                            @if($companies->isNotEmpty())
+                                                @foreach($companies as $company)
+                                                    <option value="{{ $company->id }}" @if(old('company_id') == $company->id) selected @endif>{{ $company->name }}</option>
+                                                @endforeach
+                                            @else
+                                                <option disabled>Please add company</option>
+                                            @endif
                                         </select>
                                     </div>
                                 </div>
