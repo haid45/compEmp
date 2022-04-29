@@ -32,7 +32,7 @@ class CompanyStoreRequest extends FormRequest
                 Rule::unique('companies','email')->ignore($this->route('company')),
             ],
             'website' => 'url',
-            'logo' => 'dimensions:min_width=100,min_height=100'
+            'logo' => 'dimensions:min_width='.config('media.company_logo.min_width').',min_height='.config('media.company_logo.min_height')
         ];
     }
 }
