@@ -24,7 +24,7 @@ class EmployeeStoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => [
@@ -32,6 +32,11 @@ class EmployeeStoreRequest extends FormRequest
                 'max:254',
                 Rule::unique('employees','email')->ignore($this->route('employee')),
             ],
+            'company_id' => 'exists:companies,id'
         ];
+        if($this->method() == 'POST')
+            $rules['company_id'] = 'required|exists:companies,id';
+
+        return $rules;
     }
 }
