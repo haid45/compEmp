@@ -16,9 +16,9 @@ compEmp is a simple laravel project to manage companies and their employees.
 
 ## Testing
 You can run the tests with:
-`./vendor/bin/phpunit`
+`./vendor/bin/phpunit` / `php artisan test`
 
-V1 currently only has migration and seed testing. More tests in the next release.
+Tests for Company/Employee CRUD
 
 ## Credits
 - [Laravel](https://laravel.com/).
