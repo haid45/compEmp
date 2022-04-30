@@ -26,4 +26,19 @@ class CreateCompanyTest extends CompanyBase
         $this->signIn();
         $this->post(route("{$this->base_route}.store"),[])->assertSessionHasErrors('name');
     }
+
+    /**
+     * @test
+     * @dataProvider invalidFields
+     */
+    public function userCantStoreInvalidCompany($invalidData, $invalidFields)
+    {
+        $table = app($this->base_model)->getTable();
+
+        $this->signIn();
+        $this->post(route("{$this->base_route}.store"), $invalidData)
+            ->assertSessionHasErrors($invalidFields);
+
+        $this->assertDatabaseCount($table, 0);
+    }
 }
