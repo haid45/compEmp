@@ -15,6 +15,7 @@ class EmployeeFactory extends Factory
     public function definition()
     {
         $companies = Company::all()->isNotEmpty() ? Company::all()->pluck('id') : Factory::factoryForModel(Company::class)->create()->pluck('id');
+
         return [
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
